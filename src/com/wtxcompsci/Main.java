@@ -23,12 +23,13 @@ public class Main {
 
             int treeCount = 0;
 
-            int x = xs[i];
+            int x = 0;
             for (int y = ys[i]; y < map.size(); y+=ys[i]) {
-                x = ((x + xs[1]) < map.get(y).length()) ? x + xs[i] : (x + xs[i]) - map.get(y).length();
+                x = ((x + xs[i]) < map.get(y).length()) ? x + xs[i] : (x + xs[i]) % map.get(y).length();
                 if (map.get(y).charAt(x) == '#')
                     treeCount++;
             }
+            System.out.println(treeCount);
             prod = prod * (long)treeCount;
         }
         System.out.println(prod);
